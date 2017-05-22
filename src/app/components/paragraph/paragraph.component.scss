@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  position: relative;
+  padding-right: 50px;
+  min-height: 40px;
+  &.active {
+    .index {
+      background-color: #6c93f3;
+    }
+  }
+}
+
+.index {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  right: 5px;
+  top: 0;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: #eee;
+  transition: .3s background-color;
+  &:hover {
+    background-color: #6c93f3;
+  }
+}

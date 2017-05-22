@@ -5,7 +5,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import 'rxjs/add/operator/map';
 
 @Component({
-  selector: 'app-svg',
+  selector: 'alice-svg',
   template: `<span [innerHtml]="html"></span>`
 })
 export class SvgComponent implements OnChanges {

@@ -12,6 +12,10 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
+    path: ':paragraph',
+    component: HomeComponent,
+  },
+  {
     path: '**',
     component:  NotFoundComponent
   }
