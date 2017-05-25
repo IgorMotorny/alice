@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Http } from '@angular/http';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { VoiceService } from 'app/services';
+import { environment } from 'environments/environment';
 
 declare var responsiveVoice;
 @Component({
@@ -22,7 +23,7 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.http.get('/assets/books/test.json')
+    this.http.get((environment.production ? '/alice' : '') + '/assets/books/test.json')
       .subscribe(r => this.initBook(r.json()));
   }
 
