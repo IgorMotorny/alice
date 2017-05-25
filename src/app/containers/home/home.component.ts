@@ -29,13 +29,14 @@ export class HomeComponent implements OnInit {
   initBook(book) {
     this.book = book;
     this.route.params.subscribe(params => {
-      const active = params['paragraph'];
+      const active = Number(params['paragraph']);
       if (!active) { return; }
 
       this.setActive(active);
       setTimeout(() => {
-        document.querySelector(`.p-${active}`).scrollIntoView();
-      }, 300);
+        const el = document.querySelector(`.p-${active}`);
+        if (el) { el.scrollIntoView(); }
+      }, 1000);
 
     });
   }
