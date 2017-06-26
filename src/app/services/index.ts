@@ -1,12 +1,12 @@
-import { GoogleMapsService } from './google-maps/google-maps.service';
 import { VoiceService } from './voice/voice.service';
+import { GoogleDriveService } from './google-drive/google-drive.service';
 
 export {
-  GoogleMapsService,
   VoiceService,
+  GoogleDriveService,
 };
 
 export const services = [
-  GoogleMapsService,
   VoiceService,
+  GoogleDriveService,
 ];

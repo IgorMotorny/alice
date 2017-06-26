@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 8100",
     "build": "ng build --env=prod --base-href /alice/",
     "test": "ng test",
     "lint": "ng lint",

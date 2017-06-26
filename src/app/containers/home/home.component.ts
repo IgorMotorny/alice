@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Http } from '@angular/http';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { VoiceService } from 'app/services';
+import { VoiceService, GoogleDriveService } from 'app/services';
 import { environment } from 'environments/environment';
 
 declare var responsiveVoice;
@@ -20,15 +20,22 @@ export class HomeComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private voice: VoiceService,
+    private drive: GoogleDriveService,
   ) { }
 
-  ngOnInit() {
-    this.http.get((environment.production ? '/alice' : '') + '/assets/books/test.json')
-      .subscribe(r => this.initBook(r.json()));
+  ngOnInit() {  }
+
+  openPicker() {
+    this.drive.open();
+    this.drive.file.subscribe((text: string) => {
+      console.log(text);
+      this.initBook(text.split('\n').map(str => str.trim()).filter(str => str.length));
+    });
   }
 
   initBook(book) {
     this.book = book;
+    this.ref.detectChanges();
     this.route.params.subscribe(params => {
       const active = Number(params['paragraph']);
       if (!active) { return; }
