@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {
   HomeComponent,
-  NotFoundComponent
+  NotFoundComponent,
+  BookComponent
 } from './containers';
 
 export const routes: Routes = [
@@ -12,9 +13,17 @@ export const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: ':paragraph',
-    component: HomeComponent,
+    path: 'book',
+    component: BookComponent,
   },
+  {
+    path: 'book/:id',
+    component: BookComponent,
+  },
+  // {
+  //   path: 'book/:id/:paragraph',
+  //   component: BookComponent,
+  // },
   {
     path: '**',
     component:  NotFoundComponent

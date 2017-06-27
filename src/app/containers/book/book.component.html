@@ -1,0 +1,18 @@
+<div class="container" *ngIf="book">
+  <!-- <alice-paragraph
+    *ngFor="let p of book; let i = index"
+    [index]="i"
+    [ngClass]=" { 'active': i == active }"
+    (read)="speek($event)"
+    (activeChange)="setActive($event)"
+    [class]="'p-' + i"
+  > -->
+  <alice-paragraph
+    *ngFor="let p of book; let i = index"
+    [index]="i"
+    [ngClass]=" { 'active': i == active }"
+    [class]="'p-' + i"
+  >
+    {{ p }}
+  </alice-paragraph>
+</div>
